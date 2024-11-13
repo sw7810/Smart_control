@@ -1,0 +1,53 @@
+/* src/Settings.css */
+
+.settings-container {
+  padding: 20px;
+}
+
+.settings-container h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #000;
+}
+
+.schedule-group {
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+.schedule-group h2 {
+  font-size: 1.2rem;
+  margin-bottom: 10px;
+}
+
+label {
+  display: block;
+  font-size: 1rem;
+  margin-top: 10px;
+  color: #333;
+}
+
+input[type="time"] {
+  padding: 8px;
+  width: 100%;
+  font-size: 1rem;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+}
+
+button {
+  margin-top: 15px;
+  padding: 10px;
+  width: 100%;
+  background-color: #1e90ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background-color: #1c86ee;
+}
