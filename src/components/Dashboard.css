@@ -1,0 +1,118 @@
+/* components/Dashboard.css */
+
+.dashboard-container {
+  /* text-align: center; */
+  padding: 2rem;
+  background-color: #fff;
+  color: #000;
+}
+
+.dashboard-title {
+  margin-top: -20px;
+  font-size: 4rem;
+  margin-bottom: 3rem;
+}
+.dashboard-title span {
+  display: block;
+  margin-bottom: -20px;
+}
+.lecture-selector {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2.5rem;
+  background-color: #ddd;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+  padding: 10px;
+  border-radius: 20px;
+}
+
+.lecture {
+  color: #939393;
+  padding: 0.5rem 1rem;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.lecture.selected {
+  background-color: #1e90ff;
+  border-radius: 1rem;
+  color: white;
+}
+
+.lecture:hover {
+  background-color: #ddd;
+  border-radius: 1rem;
+  color: black;
+}
+
+.add-lecture {
+  background-color: transparent;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  margin-left: 1rem;
+}
+
+.weather {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 1.2rem;
+  padding: 0.5rem;
+  margin: 1rem auto;
+  border: 1px solid #000;
+  border-radius: 15px;
+  width: fit-content;
+  margin-bottom: 3rem;
+}
+
+.dashboard-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.dashboard-link {
+  display: flex;
+  flex-direction: flex;  /* 텍스트와 이미지를 세로로 정렬 */
+  align-items: center;
+  justify-content: flex-start;
+  padding: 20px;
+  font-size: 1.5rem;
+  color: #fff;
+  border-radius: 10px;
+  text-decoration: none;
+  position: relative;
+  height: 100px; /* 카드 높이 설정 */
+}
+
+.card-image {
+  width: 32px; /* 이미지 크기 설정 */
+  height: 32px; /* 이미지 크기 설정 */
+  margin-left: 40px;
+  /* margin-right: 20px; */
+  object-fit: contain; /* 이미지 비율 유지 */
+}
+
+.control {
+  background-color: #1e90ff;
+}
+
+.schedule {
+  background-color: #333;
+}
+
+.security {
+  background-color: #333;
+}
+
+.analysis {
+  background-color: #333;
+}
+
+.dashboard-link:hover {
+  opacity: 0.8;
+}

@@ -1,0 +1,97 @@
+/* components/Login.css */
+
+.login-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #000;
+  color: #fff;
+}
+
+.login-title {
+  font-size: 4rem;
+  margin-bottom: -1.5rem;
+  font-weight: bold;
+}
+
+.login-subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 5rem;
+
+}
+
+.login-form {
+  width: 80%;
+  max-width: 400px;
+}
+
+.login-input {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  background-color: #ddd;
+  border: none;
+  border-radius: 5px;
+}
+
+.login-button {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #1e90ff;
+  border: none;
+  border-radius: 35px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  margin-left: 10px;
+}
+
+.login-links {
+  display: flex;
+  justify-content: center;
+  font-size: 0.9rem;
+  margin: 1rem 0; /* 위아래 공백 추가 */
+}
+
+.login-links a {
+  color: #fff;
+  text-decoration: none;
+  margin: 0 5px; /* 링크 사이 간격 추가 */
+}
+
+.login-or-separator {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 1.5rem 0; /* 위아래 구분선 추가를 위한 여백 */
+}
+
+.login-or-separator::before,
+.login-or-separator::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #555;
+  margin: 0 10px;
+}
+
+.login-social-button {
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  color: #fff;
+  background-color: #333;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-bottom: 0.5rem;
+  margin-left: 10px;
+}
+
+.login-social-button:hover {
+  background-color: #555;
+}
