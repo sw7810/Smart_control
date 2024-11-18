@@ -1,5 +1,6 @@
 /* components/Control.css */
 
+/* 기본 스타일 */
 .control-container {
   padding: 2rem;
   background-color: #fff;
@@ -26,42 +27,45 @@
   display: block;
 }
 
+/* Turn Off All 버튼 */
 .turn-off-all {
   display: flex;
-  justify-content: flex-end;  /* 버튼을 오른쪽으로 정렬 */
+  justify-content: flex-end;
   margin: 2rem 0;
 }
 
 .turn-off-all button {
-  justify-content: flex;
-  align-items: center;
+  display: flex;
   justify-content: center;
-  margin-right: -20px;
-  margin: 2rem 0;
+  align-items: center;
   padding: 1rem;
-  font-size: 1rem; /* 크기 줄임 */
-  color: #333;
+  font-size: 1rem;
+  background-color: #6c6c6c;
+  color: #fff;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  width: 200px;  /* 버튼 크기 조정 */
-  height: 60px;  /* 버튼 크기 조정 */
+  width: 200px;
+  height: 60px;
 }
 
-/* 전원 버튼 이미지 크기 조정 */
 .turn-off-all img {
-  width: 40px;  /* 크기 조정 */
-  height: 40px;  /* 크기 조정 */
+  width: 40px;
+  height: 40px;
   margin-right: 10px;
 }
 
 .turn-off-all-button-on {
-  background-color: 1e90ff;
+  background-color: gray !important; /* 파란색 */
+  color: white;
 }
 
 .turn-off-all-button-off {
-  background-color: #555555;  /* 색상 반전 */
+  background-color: #1e90ff !important; /* 회색 */
+  color: white;
 }
+
+/* Device Group Styling */
 .device-group {
   background-color: #f9f9f9;
   margin-bottom: 2rem;
@@ -95,27 +99,31 @@
   font-size: 1.2rem;
 }
 
-/* 버튼 디자인을 UI에 맞게 수정 */
+/* 버튼 스타일 */
 .device-item button {
   padding: 0.5rem 1rem;
   font-size: 1rem;
   border: none;
   cursor: pointer;
   border-radius: 20px;  /* 둥근 버튼 */
-  width: 60px;
-  height: 30px;
+  width: 80px;
+  height: 40px;
+  transition: background-color 0.3s, color 0.3s; /* 부드러운 색상 전환 */
 }
 
+/* on 상태일 때 버튼 색상 */
 .device-item button.on {
-  background-color: #1e90ff; /* 'on' 상태의 버튼 색상 */
+  background-color: #1e90ff !important; /* 'on' 상태의 버튼 색상 */
   color: white;
 }
 
+/* off 상태일 때 버튼 색상 */
 .device-item button.off {
-  background-color: gray;  /* 'off' 상태의 버튼 색상 */
+  background-color: gray !important; /* 'off' 상태의 버튼 색상 */
   color: black;
 }
 
+/* 각 device-group에 대한 배경색 */
 .device-group:nth-child(1) {
   background-color: #f0f8ff;
 }

@@ -8,9 +8,10 @@ const Dashboard = () => {
   const [temperature, setTemperature] = useState(null);
   const [humidity, setHumidity] = useState(null);
   const [selectedLecture, setSelectedLecture] = useState('Lecture 1');
+  const [loading, setLoading] = useState(true);  // 로딩 상태 추가
+  const [error, setError] = useState(null); // 오류 상태 추가
 
   useEffect(() => {
-    // 날씨 정보를 가져오기 위한 API 호출
     const fetchWeather = async () => {
       try {
         const response = await WeatherService.getWeather();
@@ -18,6 +19,9 @@ const Dashboard = () => {
         setHumidity(response.data.main.humidity);
       } catch (error) {
         console.error('Error fetching weather data:', error);
+        setError("날씨 정보를 가져올 수 없습니다.");  // 오류 메시지 설정
+      } finally {
+        setLoading(false);  // 로딩 상태 업데이트
       }
     };
 
@@ -27,6 +31,10 @@ const Dashboard = () => {
   const handleLectureChange = (lecture) => {
     setSelectedLecture(lecture);
   };
+
+  if (loading) {
+    return <div>Loading...</div>;  // 로딩 중일 때 표시할 내용
+  }
 
   return (
     <div className="dashboard-container">
@@ -58,8 +66,14 @@ const Dashboard = () => {
       </div>
 
       <div className="weather">
-        <span>🌞 temperature : {temperature}°C</span>
-        <span>💧 humidity : {humidity}%</span>
+        {error ? (
+          <span>{error}</span>  // 에러가 있을 경우 에러 메시지 출력
+        ) : (
+          <>
+            <span>🌞 temperature : {temperature}°C</span>
+            <span>💧 humidity : {humidity}%</span>
+          </>
+        )}
       </div>
 
       <div className="dashboard-links">

@@ -1,10 +1,15 @@
 /* components/Dashboard.css */
 
 .dashboard-container {
-  /* text-align: center; */
   padding: 2rem;
   background-color: #fff;
-  color: #000;
+  min-height: 100vh; /* 화면 세로 길이가 최소 100%로 설정 */
+  display: flex;
+  flex-direction: column;
+}
+
+.dashboard-links {
+  margin-top: auto;  /* 콘텐츠가 끝나면 아래로 밀려서 고정됨 */
 }
 
 .dashboard-title {

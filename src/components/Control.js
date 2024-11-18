@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './Control.css';
-import { getDeviceStatus, updateDeviceStatus, turnOffAllDevices } from '../services/DeviceService'; // Named Import
+import { getDeviceStatus, updateDeviceStatus, turnOffAllDevices, turnOnAllDevices } from '../services/DeviceService';
 
 const Control = () => {
   const [light1Status, setLight1Status] = useState(false);
@@ -32,17 +32,26 @@ const Control = () => {
 
   const toggleDevice = async (device) => {
     try {
-      const currentStatus = eval(`${device}Status`); // 현재 상태 가져오기
-      const updatedStatus = !currentStatus; // 상태 반전
+      let updatedStatus;
 
-      // 상태 업데이트 후 UI 업데이트
+      if (device === 'light1') {
+        updatedStatus = !light1Status;
+        setLight1Status(updatedStatus);
+      }
+      if (device === 'light2') {
+        updatedStatus = !light2Status;
+        setLight2Status(updatedStatus);
+      }
+      if (device === 'airConditioner') {
+        updatedStatus = !airConditionerStatus;
+        setAirConditionerStatus(updatedStatus);
+      }
+      if (device === 'computer') {
+        updatedStatus = !computerStatus;
+        setComputerStatus(updatedStatus);
+      }
+
       await updateDeviceStatus(device, updatedStatus);
-
-      // 상태에 맞춰 UI를 반영
-      if (device === 'light1') setLight1Status(updatedStatus);
-      if (device === 'light2') setLight2Status(updatedStatus);
-      if (device === 'airConditioner') setAirConditionerStatus(updatedStatus);
-      if (device === 'computer') setComputerStatus(updatedStatus);
     } catch (error) {
       console.error(`Error toggling ${device}:`, error);
     }
@@ -50,16 +59,29 @@ const Control = () => {
 
   const turnOffAll = async () => {
     try {
-      // 모든 장치 끄기 API 호출
-      await turnOffAllDevices();
-      // 상태 업데이트 후 UI 반영
+      console.log('Turning off all devices...');
+      await turnOffAllDevices();  // 서버에서 모든 장치 끄기
       setLight1Status(false);
       setLight2Status(false);
       setAirConditionerStatus(false);
       setComputerStatus(false);
-      setTurnOffAllStatus(true); // 버튼 색상 반전 상태 변경
+      setTurnOffAllStatus(true); // 상태 업데이트 후 색상 반전
     } catch (error) {
       console.error('Error turning off all devices:', error);
+    }
+  };
+
+  const turnOnAll = async () => {
+    try {
+      console.log('Turning on all devices...');
+      await turnOnAllDevices(); // 모든 장치 켜는 함수 호출
+      setLight1Status(true);
+      setLight2Status(true);
+      setAirConditionerStatus(true);
+      setComputerStatus(true);
+      setTurnOffAllStatus(false); // 상태 업데이트 후 색상 반전
+    } catch (error) {
+      console.error('Error turning on all devices:', error);
     }
   };
 
@@ -76,11 +98,11 @@ const Control = () => {
 
       <div className="turn-off-all">
         <button
-          className={turnOffAllStatus ? 'turn-off-all-button-off' : 'turn-off-all-button-on'} // 버튼 색상 변경
-          onClick={turnOffAll}
+          className={turnOffAllStatus ? 'turn-off-all-button-off' : 'turn-off-all-button-on'}
+          onClick={turnOffAllStatus ? turnOnAll : turnOffAll} // 상태에 따라 '켜기'와 '끄기' 버튼 처리
         >
           <img src="/img/power-off.png" alt="Turn Off All" />
-          Turn Off All
+          {turnOffAllStatus ? 'Turn On All' : 'Turn Off All'}  {/* 텍스트 변경 */}
         </button>
       </div>
 

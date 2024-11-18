@@ -20,11 +20,11 @@ function App() {
         <Route path="/" element={isAuthenticated ? <Navigate to="/dashboard" /> : <Login />} />
         
         {/* 로그인된 상태에서만 대시보드와 다른 페이지 접근 */}
-        <Route path="/Dashboard" element={isAuthenticated ? <Dashboard /> : <Navigate to="/" />} />
-        <Route path="/Control" element={isAuthenticated ? <Control /> : <Navigate to="/" />} />
-        <Route path="/Schedule" element={isAuthenticated ? <Schedule /> : <Navigate to="/" />} />
-        <Route path="/Security" element={isAuthenticated ? <Security /> : <Navigate to="/" />} />
-        <Route path="/Analysis" element={isAuthenticated ? <Analysis /> : <Navigate to="/" />} />
+        <Route path="/dashboard" element={isAuthenticated ? <Dashboard /> : <Navigate to="/" />} />
+        <Route path="/control" element={isAuthenticated ? <Control /> : <Navigate to="/" />} />
+        <Route path="/schedule" element={isAuthenticated ? <Schedule /> : <Navigate to="/" />} />
+        <Route path="/security" element={isAuthenticated ? <Security /> : <Navigate to="/" />} />
+        <Route path="/analysis" element={isAuthenticated ? <Analysis /> : <Navigate to="/" />} />
       </Routes>
     </Router>
   );
