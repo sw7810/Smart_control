@@ -24,7 +24,22 @@ const Schedule = () => {
   };
 
   const saveSchedule = (device) => {
-    console.log(`Saving schedule for ${device}`);
+    if (
+      (device === 'light' && !lightTime.turnOn && !lightTime.turnOff) ||
+      (device === 'airConditioner' && !airConditionerTime.turnOn && !airConditionerTime.turnOff) ||
+      (device === 'computer' && !computerTime.turnOn && !computerTime.turnOff)
+    ) {
+      alert('등록된 스케줄 없음');
+    } else {
+      alert('스케줄 설정이 완료되었습니다 - 확인');
+    }
+  };
+
+  const renderTimeInfo = (time) => {
+    if (!time.turnOn && !time.turnOff) {
+      return '등록된 스케줄 없음';
+    }
+    return `Turn On: ${time.turnOn || '미지정'} ~ Turn Off: ${time.turnOff || '미지정'}`;
   };
 
   return (
@@ -56,6 +71,7 @@ const Schedule = () => {
             Light2
           </span>
         </div>
+        <p className="schedule-info">{renderTimeInfo(lightTime)}</p>
         <div className="time-selector">
           <input
             type="time"
@@ -80,6 +96,7 @@ const Schedule = () => {
       {/* Air Conditioner Section */}
       <div className="device-section air-conditioner-section">
         <h2>Set Schedule for Air Conditioner</h2>
+        <p className="schedule-info">{renderTimeInfo(airConditionerTime)}</p>
         <div className="time-selector">
           <input
             type="time"
@@ -104,6 +121,7 @@ const Schedule = () => {
       {/* Computer Section */}
       <div className="device-section computer-section">
         <h2>Set Schedule for Computer</h2>
+        <p className="schedule-info">{renderTimeInfo(computerTime)}</p>
         <div className="time-selector">
           <input
             type="time"

@@ -73,3 +73,8 @@
   border-radius: 8px;
   cursor: pointer;
 }
+.schedule-info {
+  font-size: 1rem;
+  color: gray;
+  margin-bottom: 1rem;
+}

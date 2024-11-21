@@ -1,0 +1,101 @@
+.analysis-container {
+  padding: 2rem;
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+}
+
+/* 뒤로가기 버튼 */
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.back-icon {
+  width: 30px;
+  height: 30px;
+}
+
+/* 제목 스타일 */
+.analysis-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+/* 날짜 선택 */
+.date-selector {
+  margin-bottom: 1.5rem;
+}
+
+.date-input {
+  font-size: 1rem;
+  padding: 0.5rem;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+/* Total Energy Usage 섹션 */
+.total-usage-section {
+  background-color: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.total-usage-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.total-usage-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  text-align: left;
+}
+
+.total-usage-value {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #007bff;
+  text-align: right;
+}
+
+.energy-usage-graph {
+  margin-top: 1rem;
+}
+
+/* 기기별 에너지 사용량 */
+.device-usage {
+  background-color: #f9f9f9;
+  padding: 1rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.device-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  background-color: #eaeaea;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+}
+
+.device-name {
+  font-size: 1.2rem;
+  font-weight: bold;
+  flex-grow: 1;
+}
+
+.device-usage-percentage {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #007bff;
+}
+
